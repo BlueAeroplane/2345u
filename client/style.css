@@ -1,0 +1,19 @@
+/* Fix user-agent */
+
+.panel-default{
+	margin: 10px;
+}
+
+.btn-default{
+	margin: 5px;
+}
+.btn-info {
+    background-color: #3276b1;
+    border-color: rgb(70, 184, 218);
+}
+#q_mcq a{
+	cursor:pointer;
+}
+.Game-container{
+	margin:20px;
+}

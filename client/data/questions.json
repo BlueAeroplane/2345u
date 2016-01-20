@@ -1,0 +1,34 @@
+{
+    "data": {
+        "questions": [
+            {
+                "q": "Where is Mount Everest?",
+                "o": [
+                    "India",
+                    "China",
+                    "Nepal",
+                    "Bhutan"
+                ],
+                "ans": 3
+            },{
+                "q": "Largest Ocean?",
+                "o": [
+                    "India Ocean",
+                    "Arctic Ocean",
+                    "Antarctic Ocean",
+                    "Pacific Ocean"
+                ],
+                "ans": 4
+            },{
+                "q": "Prime Minister of Australia?",
+                "o": [
+                    "Julia Gillard",
+                    "Tonu Abbott",
+                    "John Howard",
+                    "Kevin Rudd"
+                ],
+                "ans": 2
+            }
+        ]
+    }
+}

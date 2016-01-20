@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.IO Chat Example</title>
+  
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/libs/handlebars-1.0.0.js"></script>
+    <script src="/libs/ember.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  
+  <script src="/socket.js"></script>
+  <script src="/main.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script type="text/x-handlebars" data-template-name="login">
+<div id="q_login" class="panel panel-default">
+  <div class="panel-heading">
+  <h3 class="panel-title">Enter Username</h3>
+  </div>
+
+  <div class="panel-body">
+  <div class="input-group input-group-lg">
+	{{input type="text" class="form-control" value=username}}
+
+  <button id="q_enter" {{action "enter"}}  type="button" class="btn btn-default btn-info" data-loading-text="login in process....">Lets Play!</button>
+  </div>
+  </div>
+</div>
+</script>
+ 
+
+<script type="text/x-handlebars" data-template-name="room"> 
+  <div id="q_listpanel" class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Multiplayer Quiz</div>
+      <div class="panel-body">
+        <p>Waiting for the players to join... </p>
+      </div>
+      <table id="q_userlist" class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Player Name</th>
+          </tr>
+        </thead>
+        <tbody> 
+		{{#each model.users}}
+    		<tr><td>1</td><td>{{this}}</td></tr>
+  		{{/each}}          
+        </tbody>
+      </table>
+		{{#if isAdmin}}
+      <br><button id="q_play" {{action "enterGame"}} type="button" class="btn btn-default btn-info" data-loading-text="login in process....">Lets Play!</button>
+		{{/if}}
+    </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="game">
+{{mcq model=mcq select="sendToServer"}}
+</script>
+
+<script type="text/x-handlebars" id="components/mcq">
+<div>{{model.q}}</div>
+<div id="q_mcq" class="list-group">
+
+{{#each model.o}}
+  {{#view App.OptionView}}{{this}}{{/view}}
+{{/each}}
+</div>
+</script>
+
+<div id="myModal" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Opps!!!</h4>
+      </div>
+      <div class="modal-body">
+        You are wrong. Wait for next Question.
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
